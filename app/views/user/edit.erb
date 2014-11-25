@@ -1,0 +1,10 @@
+<p>
+  <%= form_for @user do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.submit %>
+  <% end %>
+</p>
+
+<%= link_to 'Back', user_index_path %>
+

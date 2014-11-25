@@ -1,0 +1,9 @@
+<p>
+  <%= form_for :user, url: user_index_path do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.submit %>
+  <% end %>
+</p>
+
+<%= link_to 'Back', user_index_path %>

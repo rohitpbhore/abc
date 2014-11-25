@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">NAME</Data></Cell>
+        <Cell><Data ss:Type="String">ARTICLES</Data></Cell>
+      </Row>
+    <% @users.each do |user| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= user.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.name %></Data></Cell>
+      </Row>
+      <% user.articles.each do |article| %>
+        <Row>
+          <Cell></Cell>
+          <Cell></Cell>
+          <Cell><Data ss:Type="String"><%= article.text %></Data></Cell>
+        </Row>
+      <% end %>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

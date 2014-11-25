@@ -1,0 +1,26 @@
+<p>
+  <b>User: <%= @user.name %></b>
+</p>
+
+<h3> Articles </h3>
+
+<ul>
+  <% @user.articles.each do |a| %>
+    <li>
+      <%= a.text %>
+    </li>
+  <% end %>
+</ul>
+
+<h3> Create Articles </h3>
+<%= form_for ([@user, @user.articles.build]) do |f| %>
+  <p>
+    <%= f.label :text %>
+    <%= f.text_field :text %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', user_index_path %>
