@@ -4,13 +4,10 @@
 
 <h3> Articles </h3>
 
-<ul>
-  <% @user.articles.each do |a| %>
-    <li>
-      <%= a.text %>
-    </li>
-  <% end %>
-</ul>
+<%= link_to 'Show all Articles', remote: true %>
+
+<div class='articles'>
+</div>
 
 <h3> Create Articles </h3>
 <%= form_for ([@user, @user.articles.build]) do |f| %>

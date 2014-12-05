@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :articles
 
+  validates :name, presence: true,length: { minimum: 5 }
+
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << column_names

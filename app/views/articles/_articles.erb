@@ -1,0 +1,11 @@
+<% if !@user.articles.blank? %>
+  <ul>
+    <% @user.articles.each do |a| %>
+      <li>
+        <%= a.text %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <h3>No Articles...</h3>
+<% end %>

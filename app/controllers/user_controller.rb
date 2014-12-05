@@ -1,4 +1,7 @@
 class UserController < ApplicationController
+
+  http_basic_authenticate_with name: "name", password: "password", only: :index
+
   def index
     @users = User.all
     respond_to do |format|
@@ -17,12 +20,21 @@ class UserController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.save
-    redirect_to @user
+    if @user.save
+      redirect_to @user
+    else
+      render 'new'
+    end
   end
 
   def show
     @user = User.find(params[:id])
+    # @user = User.where(id: params[:id]).includes(:articles)
+    # binding.pry
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def edit
