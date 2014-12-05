@@ -1,8 +1,9 @@
 <% if !@user.articles.blank? %>
   <ul>
     <% @user.articles.each do |a| %>
-      <li>
+      <li id="article_<%= a.id %>">
         <%= a.text %>
+        <%= link_to 'Destroy', [@user, a], method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
       </li>
     <% end %>
   </ul>
