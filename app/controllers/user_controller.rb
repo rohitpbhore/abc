@@ -28,8 +28,8 @@ class UserController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    # @user = User.where(id: params[:id]).includes(:articles)
+    # @user = User.find(params[:id])
+    @user = User.where(id: params[:id]).includes(:articles)
     # binding.pry
     respond_to do |format|
       format.html

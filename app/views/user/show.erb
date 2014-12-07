@@ -10,7 +10,7 @@
 </div>
 
 <h3> Create Articles </h3>
-<%= form_for ([@user, @user.articles.build]) do |f| %>
+<%= form_for ([@user.first, @user.first.articles.build]) do |f| %>
   <p>
     <%= f.label :text %>
     <%= f.text_field :text %>
@@ -20,4 +20,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', user_index_path %>
+<%= link_to 'Edit', edit_user_path(@user.first) %> | <%= link_to 'Back', user_index_path %>
